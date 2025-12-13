@@ -36,20 +36,24 @@ function computerMakeChoice () {
     return computerChoice;
 }
 
-function allocatePoints (player) {
+function calcPoints (player1, player2) {
 
 }
 
-function calculateRoundWinner (player1choice, player2choice) {
-    if (player1choice === "ROCK" && player2choice === "SCISSORS") {
-        return allocatePoints(player1choice)
-    }
+function calculateRoundWinner (player1choice, player2choice, player1points, player2points) {
+    if ((player1choice === "ROCK" && player2choice === "SCISSORS")||(player1choice === "PAPER" && player2choice === "ROCK")||(player1choice === "SCISSORS" && player2choice === "PAPER")) {
+        calcPoints(player1points)
+    } else if ((player2choice === "ROCK" && player1choice === "SCISSORS")||(player2choice === "PAPER" && player1choice === "ROCK")||(player2choice === "SCISSORS" && player1choice === "PAPER")) {
+        calcPoints(player2points)
+} 
 }
 
 function matchRound () {
+    let player1points, player2points = 0;
     let playerChoice = playerMakeChoice();
     let computerChoice = computerMakeChoice();
     console.log(`You : ${playerChoice} | Computer : ${computerChoice}`);
+    let rounds = Number(prompt("Combien de rounds ?"));
 }
 
 matchRound();
