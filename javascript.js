@@ -59,13 +59,16 @@ function matchRound (playerPoints, computerPoints) {
     let playerChoice = playerMakeChoice();
     let computerChoice = computerMakeChoice();
     console.log(`You : ${playerChoice} | Computer : ${computerChoice}`);
-    calculateRoundWinner(playerChoice, computerChoice, playerPoints, computerPoints);
+    const updatedPoints = calculateRoundWinner(playerChoice, computerChoice, playerPoints, computerPoints);
+    return updatedPoints;
 }
 
 let playerPoints = 0;
 let computerPoints = 0;
 let rounds = Number(prompt("Combien de rounds ?"));
 for (i=0; i<rounds; i++){
-    matchRound(playerPoints, computerPoints);
+    const points = matchRound(playerPoints, computerPoints);
+    playerPoints = points.player1points;
+    computerPoints = points.player2points;
 }
 alert("Game over.");
