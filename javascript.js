@@ -51,8 +51,9 @@ function calculateRoundWinner (player1choice, player2choice, player1points, play
     } else if ((player2choice === "ROCK" && player1choice === "SCISSORS")||(player2choice === "PAPER" && player1choice === "ROCK")||(player2choice === "SCISSORS" && player1choice === "PAPER")) {
         calcPoints(player2points)
         alert("You lost the round...");
-
-} 
+}  else {
+    alert("Draw");
+}
 }
 
 function matchRound (playerPoints, computerPoints) {
