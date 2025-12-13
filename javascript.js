@@ -20,7 +20,6 @@ function playerMakeChoice () {
 
 function computerMakeChoice () {
     let randomChoice = Math.ceil(Math.random()*3);
-    console.log(randomChoice);
     let computerChoice = "";
     switch (randomChoice) {
         case 1:
@@ -40,20 +39,20 @@ function initializePoints (player1points, player2points) {
     return player1points, player2points = 0;
 }
 
-function calcPoints (player) {
-    return ++player;
-}
-
 function calculateRoundWinner (player1choice, player2choice, player1points, player2points) {
     if ((player1choice === "ROCK" && player2choice === "SCISSORS")||(player1choice === "PAPER" && player2choice === "ROCK")||(player1choice === "SCISSORS" && player2choice === "PAPER")) {
-        calcPoints(player1points)
+        player1points++;
         alert("You won the round!");
+        console.log(`Scoreboard | You : ${player1points} points | Computer : ${player2points} points`);
     } else if ((player2choice === "ROCK" && player1choice === "SCISSORS")||(player2choice === "PAPER" && player1choice === "ROCK")||(player2choice === "SCISSORS" && player1choice === "PAPER")) {
-        calcPoints(player2points)
+        player2points++;
         alert("You lost the round...");
+        console.log(`Scoreboard | You : ${player1points} points | Computer : ${player2points} points`);
 }  else {
     alert("Draw");
+    console.log(`Scoreboard | You : ${player1points} points | Computer : ${player2points} points`);
 }
+return {player1points, player2points};
 }
 
 function matchRound (playerPoints, computerPoints) {
@@ -61,11 +60,10 @@ function matchRound (playerPoints, computerPoints) {
     let computerChoice = computerMakeChoice();
     console.log(`You : ${playerChoice} | Computer : ${computerChoice}`);
     calculateRoundWinner(playerChoice, computerChoice, playerPoints, computerPoints);
-
 }
 
-let playerPoints = initializePoints();
-let computerPoints = initializePoints();
+let playerPoints = 0;
+let computerPoints = 0;
 let rounds = Number(prompt("Combien de rounds ?"));
 for (i=0; i<rounds; i++){
     matchRound(playerPoints, computerPoints);
