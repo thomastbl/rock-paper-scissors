@@ -47,9 +47,11 @@ function calcPoints (player) {
 function calculateRoundWinner (player1choice, player2choice, player1points, player2points) {
     if ((player1choice === "ROCK" && player2choice === "SCISSORS")||(player1choice === "PAPER" && player2choice === "ROCK")||(player1choice === "SCISSORS" && player2choice === "PAPER")) {
         calcPoints(player1points)
-        
+        alert("You won the round!");
     } else if ((player2choice === "ROCK" && player1choice === "SCISSORS")||(player2choice === "PAPER" && player1choice === "ROCK")||(player2choice === "SCISSORS" && player1choice === "PAPER")) {
         calcPoints(player2points)
+        alert("You lost the round...");
+
 } 
 }
 
@@ -67,3 +69,4 @@ let rounds = Number(prompt("Combien de rounds ?"));
 for (i=0; i<rounds; i++){
     matchRound(playerPoints, computerPoints);
 }
+alert("Game over.");
