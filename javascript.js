@@ -5,7 +5,7 @@ function isValidChoice (choice) {
         case "SCISSORS":
             return true;
         default:
-            alert("Ce choix n'est pas valide");
+            alert("It is not valid");
             return false;
     }
 }
@@ -13,7 +13,7 @@ function isValidChoice (choice) {
 function playerMakeChoice () {
     let playerChoice = "";
     do {
-        playerChoice = prompt("Quel est votre choix?","").toUpperCase();
+        playerChoice = prompt("What is your choice","").toUpperCase();
     } while (!isValidChoice(playerChoice))
     return playerChoice;
 }
@@ -65,7 +65,7 @@ function matchRound (playerPoints, computerPoints) {
 
 let playerPoints = 0;
 let computerPoints = 0;
-let rounds = Number(prompt("Combien de rounds ?"));
+let rounds = Number(prompt("How many rounds ?"));
 for (i=0; i<rounds; i++){
     const points = matchRound(playerPoints, computerPoints);
     playerPoints = points.player1points;
